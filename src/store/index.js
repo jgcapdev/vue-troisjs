@@ -5,7 +5,9 @@ import actions from './actions.js';
 import getters from './getters.js';
 
 const store = createStore({
-  state() {},
+  state() {
+    cryptos: [];
+  },
   actions,
   getters,
   mutations,

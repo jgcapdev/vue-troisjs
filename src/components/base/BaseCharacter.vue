@@ -1,5 +1,5 @@
 <template>
-  <Mesh ref="character" :position="{ x: posX, y: posY, z: posZ }" receive-shadow>
+  <Mesh ref="character" @click="loadCryptos" :position="{ x: posX, y: posY, z: posZ }" receive-shadow>
     <SphereGeometry :radius="radius" />
     <BasicMaterial :color="color" />
   </Mesh>
@@ -38,6 +38,7 @@ export default {
       type: String,
       default: 'yellow',
     },
+    error: null,
   },
   mounted() {
     const speed = 0.2;
@@ -58,6 +59,15 @@ export default {
         this.posY = this.$refs.character.position.y -= speed;
       }
     });
+  },
+  methods: {
+    async loadCryptos() {
+      try {
+        await this.$store.dispatch('fetchCryptos');
+      } catch (error) {
+        this.error = error.message || 'Something went wrong';
+      }
+    },
   },
 };
 </script>

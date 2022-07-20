@@ -23,9 +23,9 @@ import { AxesHelper } from 'three';
 
 import BaseRenderScene from '../components/layout/BaseRenderScene.vue';
 
-import BaseRoom from '../components/rooms/BaseCharacter.vue';
+import BaseRoom from '../components/rooms/BaseRoom.vue';
 import BasePlane from '../components/rooms/BaseFloor.vue';
-import BaseCharacter from '../components/rooms/BaseCharacter.vue';
+import BaseCharacter from '../components/characters/BaseCharacter.vue';
 import BaseLights from '../components/lights/BaseLights.vue';
 import BaseRoomModel from '../components/rooms/BaseRoomModel.vue';
 

@@ -7,13 +7,20 @@
 
       <base-character :setRadius="2"></base-character>
 
-      <base-room-model></base-room-model>
+      <div v-if="isModel">
+        <base-room-model></base-room-model>
+        <base-room-model :position="{ x: 30, y: 0, z: 0 }" :rotation="{ x: 0, y: Math.PI / -2, z: 0 }"></base-room-model>
+        <base-room-model :position="{ x: 0, y: 0, z: 35 }" :rotation="{ x: 0, y: Math.PI / 2, z: 0 }"></base-room-model>
+      </div>
+      <!-- <base-room-model></base-room-model>
       <base-room-model :position="{ x: 30, y: 0, z: 0 }" :rotation="{ x: 0, y: Math.PI / -2, z: 0 }"></base-room-model>
-      <base-room-model :position="{ x: 0, y: 0, z: 35 }" :rotation="{ x: 0, y: Math.PI / 2, z: 0 }"></base-room-model>
+      <base-room-model :position="{ x: 0, y: 0, z: 35 }" :rotation="{ x: 0, y: Math.PI / 2, z: 0 }"></base-room-model> -->
 
-      <!-- <base-room :width="15" :height="8" :position="{ x: 0, y: 4, z: 0 }" :depth="15"></base-room>
-      <base-room :width="5" :position="{ x: 25, y: 5, z: 0 }" :color="'yellow'"></base-room>
-      <base-room :width="15" :position="{ x: 0, y: 5, z: 25 }" :color="'brown'"></base-room> -->
+      <div v-else>
+        <base-room :width="15" :height="8" :position="{ x: 0, y: 4, z: 0 }" :depth="15"></base-room>
+        <base-room :width="5" :position="{ x: 25, y: 5, z: 0 }" :color="'yellow'"></base-room>
+        <base-room :width="15" :position="{ x: 0, y: 5, z: 25 }" :color="'brown'"></base-room>
+      </div>
     </cannon-world>
   </base-render-scene>
 </template>
@@ -47,6 +54,22 @@ export default {
     BaseRoomModel,
     BaseRenderScene,
     CannonWorld,
+  },
+  data() {
+    return {
+      isModel: false,
+    };
+  },
+  methods: {
+    switchModel() {
+      this.isModel = !this.isModel;
+    },
+  },
+  mounted() {
+    const f3 = this.$pane.addFolder({
+      title: 'Character',
+    });
+    f3.addButton({ title: 'Switch Models' }).on('click', this.switchModel);
   },
 };
 </script>

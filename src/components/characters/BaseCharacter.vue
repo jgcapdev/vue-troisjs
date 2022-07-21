@@ -39,7 +39,7 @@ export default {
       title: 'Character',
     });
     f1.addInput(this, 'color');
-    f1.addInput(this, 'radius', { min: 1, max: 10 });
+    f1.addInput(this, 'radius', { min: 1, max: 10, step: 1 });
     f1.addInput(this, 'position');
     // ***** PANE *****
 

@@ -1,9 +1,10 @@
 <template>
-  <GltfModel @created="hola" src="/assets/models/roomgood.glb" :scale="scale" :position="position" :rotation="rotation" />
+  <GltfModel @created="hola" src="/assets/models/roomgood.gltf" :scale="scale" :position="position" :rotation="rotation" />
 </template>
 
 <script>
 import { GltfModel } from 'troisjs';
+import { BufferGeometry } from 'three';
 
 export default {
   components: { GltfModel },
@@ -23,7 +24,12 @@ export default {
   },
   methods: {
     hola(e) {
-      console.log(e);
+      const glTFGeometry = new BufferGeometry();
+
+      e.children.forEach((e) => {
+        console.log(e);
+        //glTFGeometry = e.geometry.boundingBox;
+      });
     },
   },
 };

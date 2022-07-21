@@ -67,7 +67,7 @@ export default {
   },
   mounted() {
     const f3 = this.$pane.addFolder({
-      title: 'Character',
+      title: 'Models',
     });
     f3.addButton({ title: 'Switch Models' }).on('click', this.switchModel);
   },

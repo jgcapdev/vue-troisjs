@@ -1,15 +1,21 @@
 <template>
   <Mesh ref="room" :position="position" receive-shadow>
     <BoxGeometry :width="width" :height="height" :depth="depth" />
-    <BasicMaterial :color="color" />
+    <BasicMaterial :color="color">
+      <Texture src="/assets/textures/bricks/color.jpg" />
+      <Texture src="/assets/textures/bricks/normal.jpg" name="normalMap" />
+      <Texture src="/assets/textures/bricks/ambientOcclusion.jpg" name="aoMap" />
+      <Texture src="/assets/textures/bricks/roughness.jpg" name="roughnessMap" />
+    </BasicMaterial>
   </Mesh>
 </template>
 
 <script>
-import { Mesh, BoxGeometry, BasicMaterial } from 'troisjs';
+import { Mesh, BoxGeometry, BasicMaterial, Texture } from 'troisjs';
+import { DoubleSide, Vector3 } from 'three';
 
 export default {
-  components: { Mesh, BoxGeometry, BasicMaterial },
+  components: { Mesh, BoxGeometry, BasicMaterial, Texture },
   props: {
     position: {
       type: Object,

@@ -19,7 +19,6 @@
 <script>
 import { Camera, Renderer, Scene } from 'troisjs';
 import Stats from 'troisjs/src/components/misc/Stats';
-import { AxesHelper } from 'three';
 
 import BaseRenderScene from '../components/layout/BaseRenderScene.vue';
 
@@ -35,7 +34,6 @@ export default {
     Renderer,
     Scene,
     BaseRoom,
-    AxesHelper,
     BasePlane,
     BaseCharacter,
     BaseLights,

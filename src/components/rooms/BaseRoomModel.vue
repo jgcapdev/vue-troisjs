@@ -1,5 +1,5 @@
 <template>
-  <GltfModel src="/assets/models/roomgood.glb" :scale="scale" :position="position" :rotation="rotation" />
+  <GltfModel ref="model-room" src="/assets/models/roomgood.glb" :scale="scale" :position="position" :rotation="rotation" />
 </template>
 
 <script>

@@ -1,5 +1,12 @@
 <template>
-  <Renderer ref="renderer" antialias :orbit-ctrl="{ enableDamping: true }" resize="window" shadow>
+  <Renderer
+    ref="renderer"
+    antialias
+    :orbit-ctrl="{ enableDamping: true }"
+    resize="window"
+    shadow
+    :pointer="{ intersectMode: 'frame' }"
+  >
     <Stats />
     <Camera ref="camera" :far="1000" :near="1" :fov="60" :position="{ x: 30, y: 20, z: 40 }" />
     <Scene ref="scene" background="lightblue">
@@ -20,6 +27,11 @@ export default {
     Scene,
     Stats,
     AxesHelper,
+  },
+  methods: {
+    onPointerEvent(event) {
+      console.log(event.component.mesh);
+    },
   },
   mounted() {
     const scene = this.$refs.scene;

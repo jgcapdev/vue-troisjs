@@ -10,6 +10,7 @@ import { Mesh, SphereGeometry, BasicMaterial } from 'troisjs';
 
 export default {
   components: { Mesh, SphereGeometry, BasicMaterial },
+  emits: ['pointerOver'],
   data() {
     return {
       posX: 0,

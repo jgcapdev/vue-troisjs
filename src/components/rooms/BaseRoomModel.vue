@@ -1,5 +1,5 @@
 <template>
-  <GltfModel ref="model-room" src="/assets/models/roomgood.glb" :scale="scale" :position="position" :rotation="rotation" />
+  <GltfModel @created="hola" src="/assets/models/roomgood.glb" :scale="scale" :position="position" :rotation="rotation" />
 </template>
 
 <script>
@@ -19,6 +19,11 @@ export default {
     rotation: {
       type: Object,
       default: { x: 0, y: 0, z: 0 },
+    },
+  },
+  methods: {
+    hola(e) {
+      console.log(e);
     },
   },
 };

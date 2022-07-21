@@ -5,18 +5,23 @@
     :orbit-ctrl="{ enableDamping: true }"
     resize="window"
     shadow
-    :pointer="{ intersectMode: 'frame' }"
+    :pointer="{ intersectRecursive: true }"
   >
     <Stats />
     <Camera ref="camera" :far="1000" :near="1" :fov="60" :position="{ x: 30, y: 20, z: 40 }" />
     <Scene ref="scene" background="lightblue">
       <slot></slot>
     </Scene>
+    <EffectComposer>
+      <RenderPass />
+      <UnrealBloomPass :strength="0.1" :threshold="0.99" />
+      <FXAAPass />
+    </EffectComposer>
   </Renderer>
 </template>
 
 <script>
-import { Camera, Renderer, Scene } from 'troisjs';
+import { Camera, Renderer, Scene, EffectComposer, RenderPass, UnrealBloomPass, FXAAPass } from 'troisjs';
 import Stats from 'troisjs/src/components/misc/Stats';
 import { AxesHelper } from 'three';
 
@@ -27,11 +32,10 @@ export default {
     Scene,
     Stats,
     AxesHelper,
-  },
-  methods: {
-    onPointerEvent(event) {
-      console.log(event.component.mesh);
-    },
+    EffectComposer,
+    RenderPass,
+    UnrealBloomPass,
+    FXAAPass,
   },
   mounted() {
     const scene = this.$refs.scene;

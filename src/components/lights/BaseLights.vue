@@ -1,6 +1,6 @@
 <template>
-  <AmbientLight color="#ffffff" :intensity="10" cast-shadow />
-  <PointLight color="#afddff" :intensity="0.5" cast-shadow />
+  <AmbientLight color="#ffffff" :intensity="10" :cast-shadow="true" />
+  <PointLight color="#afddff" :intensity="0.5" :cast-shadow="true" />
 </template>
 
 <script>

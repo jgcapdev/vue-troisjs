@@ -2,17 +2,19 @@
   <base-render-scene>
     <base-lights></base-lights>
 
-    <base-plane></base-plane>
+    <cannon-world :gravity="{ x: 0, y: 0, z: 0 }">
+      <base-plane></base-plane>
 
-    <base-character :radius="2"></base-character>
+      <base-character :setRadius="2"></base-character>
 
-    <base-room-model></base-room-model>
-    <base-room-model :position="{ x: 30, y: 0, z: 0 }" :rotation="{ x: 0, y: Math.PI / -2, z: 0 }"></base-room-model>
-    <base-room-model :position="{ x: 0, y: 0, z: 35 }" :rotation="{ x: 0, y: Math.PI / 2, z: 0 }"></base-room-model>
+      <base-room-model></base-room-model>
+      <base-room-model :position="{ x: 30, y: 0, z: 0 }" :rotation="{ x: 0, y: Math.PI / -2, z: 0 }"></base-room-model>
+      <base-room-model :position="{ x: 0, y: 0, z: 35 }" :rotation="{ x: 0, y: Math.PI / 2, z: 0 }"></base-room-model>
 
-    <!-- <base-room :width="15" :height="8" :position="{ x: 0, y: 4, z: 0 }" :depth="15"></base-room>
+      <!-- <base-room :width="15" :height="8" :position="{ x: 0, y: 4, z: 0 }" :depth="15"></base-room>
       <base-room :width="5" :position="{ x: 25, y: 5, z: 0 }" :color="'yellow'"></base-room>
       <base-room :width="15" :position="{ x: 0, y: 5, z: 25 }" :color="'brown'"></base-room> -->
+    </cannon-world>
   </base-render-scene>
 </template>
 
@@ -28,6 +30,9 @@ import BaseCharacter from '../components/characters/BaseCharacter.vue';
 import BaseLights from '../components/lights/BaseLights.vue';
 import BaseRoomModel from '../components/rooms/BaseRoomModel.vue';
 
+import { Color, MathUtils, Object3D, Vector3 } from 'three';
+import CannonWorld from 'troisjs/src/components/physics/CannonWorld.js';
+
 export default {
   components: {
     Camera,
@@ -41,6 +46,7 @@ export default {
     BaseLights,
     BaseRoomModel,
     BaseRenderScene,
+    CannonWorld,
   },
 };
 </script>

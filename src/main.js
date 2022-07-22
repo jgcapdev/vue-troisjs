@@ -11,7 +11,7 @@ const app = createApp(App);
 app.use(store);
 app.use(router);
 
-const pane = new Pane({ title: 'Options' });
+const pane = new Pane({ title: 'Options', expanded: false });
 app.config.globalProperties.$pane = pane;
 
 app.mount('#app');

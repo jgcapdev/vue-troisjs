@@ -3,13 +3,13 @@
     ref="renderer"
     antialias
     :orbit-ctrl="{ enableDamping: true }"
-    resize="window"
+    :resize="resize"
     shadow
     :pointer="{ intersectRecursive: true }"
   >
     <Stats />
-    <Camera ref="camera" :far="1000" :near="1" :fov="60" :position="{ x: 30, y: 20, z: 40 }" />
-    <Scene ref="scene" background="lightblue">
+    <Camera ref="camera" :far="1000" :near="1" :fov="fov" :position="position" />
+    <Scene ref="scene" :background="background">
       <slot></slot>
     </Scene>
     <EffectComposer>
@@ -23,7 +23,7 @@
 <script>
 import { Camera, Renderer, Scene, EffectComposer, RenderPass, UnrealBloomPass, FXAAPass } from 'troisjs';
 import Stats from 'troisjs/src/components/misc/Stats';
-import { AxesHelper } from 'three';
+import { AxesHelper, Fog } from 'three';
 
 export default {
   components: {
@@ -37,11 +37,41 @@ export default {
     UnrealBloomPass,
     FXAAPass,
   },
+  data() {
+    return {
+      far: 1000,
+      fov: 60,
+      position: { x: 30, y: 20, z: 40 },
+      background: '#ADD8E6',
+      resize: 'window',
+    };
+  },
   mounted() {
-    const scene = this.$refs.scene;
+    const scene = this.$refs.scene.scene;
+    scene.fog = new Fog(0xa0a0a0, 200, 1000);
 
     const axesHelper = new AxesHelper(100);
     scene.add(axesHelper);
+
+    // ***** PANE *****
+    const f5 = this.$pane.addFolder({
+      title: 'Scene',
+    });
+    f5.addInput(this, 'far');
+    f5.addInput(this, 'fov');
+    f5.addInput(this, 'position');
+    f5.addInput(this, 'background');
+    f5.addBlade({
+      view: 'list',
+      label: 'render',
+      options: [
+        { text: 'false', value: false },
+        { text: 'true', value: true },
+        { text: 'window', value: 'window' },
+      ],
+      value: 'window',
+    });
+    // ***** PANE *****
   },
 };
 </script>

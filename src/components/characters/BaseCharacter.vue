@@ -20,7 +20,7 @@ export default {
   props: {
     setPosition: {
       type: Object,
-      default: { x: 0, y: 5, z: 0 },
+      default: { x: 0, y: 10, z: 0 },
     },
 
     setRadius: {

@@ -14,7 +14,6 @@
 
 <script>
 import { Mesh, SphereGeometry, BasicMaterial } from 'troisjs';
-import { Object3D, Vector3 } from 'three';
 
 export default {
   components: { Mesh, SphereGeometry, BasicMaterial },
@@ -70,13 +69,6 @@ export default {
     });
 
     this.imesh.userData.body.addEventListener('collide', (e) => {
-      /**
-       * IDS
-       * 105 --- BASE ROOM
-       * 523 --- FLOOR
-       * 424 --- BROWN ROOM
-       * 401 --- RED ROOM
-       */
       console.log(e.contact);
 
       if (e.contact.id === 105) {

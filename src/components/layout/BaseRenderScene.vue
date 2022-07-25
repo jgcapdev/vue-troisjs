@@ -10,6 +10,7 @@
     <Stats />
     <Camera ref="camera" :far="1000" :near="1" :fov="fov" :position="position" />
     <Scene ref="scene" :background="background">
+      <!-- Render scene is here! -->
       <slot></slot>
     </Scene>
     <EffectComposer>

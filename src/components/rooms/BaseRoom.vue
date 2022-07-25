@@ -41,7 +41,7 @@ export default {
     initIMesh(imesh) {
       this.imesh = imesh;
 
-      let mass = 1;
+      let mass = 0;
 
       imesh.userData.mass = mass;
     },

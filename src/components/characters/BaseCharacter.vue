@@ -68,6 +68,21 @@ export default {
         this.imesh.userData.body.position.y = this.position.y -= speed;
       }
     });
+
+    this.imesh.userData.body.addEventListener('collide', (e) => {
+      /**
+       * IDS
+       * 105 --- BASE ROOM
+       * 523 --- FLOOR
+       * 424 --- BROWN ROOM
+       * 401 --- RED ROOM
+       */
+      console.log(e.contact);
+
+      if (e.contact.id === 105) {
+        console.log('Contact with base room');
+      }
+    });
   },
   methods: {
     async loadCryptos() {
@@ -87,12 +102,6 @@ export default {
 
       imesh.userData.mass = mass;
       imesh.userData.damping = 0.7;
-
-      console.log(imesh);
-
-      imesh.addEventListener('collide', (e) => {
-        console.log(e);
-      });
     },
   },
 };

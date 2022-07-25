@@ -1,5 +1,5 @@
 <template>
-  <Mesh ref="room" :position="position" receive-shadow>
+  <Mesh ref="room" :position="position" receive-shadow @created="initIMesh">
     <BoxGeometry :width="width" :height="height" :depth="depth" />
     <BasicMaterial :color="color">
       <Texture src="/assets/textures/bricks/color.jpg" />
@@ -12,7 +12,6 @@
 
 <script>
 import { Mesh, BoxGeometry, BasicMaterial, Texture } from 'troisjs';
-import { DoubleSide, Vector3 } from 'three';
 
 export default {
   components: { Mesh, BoxGeometry, BasicMaterial, Texture },
@@ -36,6 +35,15 @@ export default {
     color: {
       type: String,
       default: 'red',
+    },
+  },
+  methods: {
+    initIMesh(imesh) {
+      this.imesh = imesh;
+
+      let mass = 1;
+
+      imesh.userData.mass = mass;
     },
   },
 };

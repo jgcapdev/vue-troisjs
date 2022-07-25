@@ -2,10 +2,10 @@
   <base-render-scene>
     <base-lights></base-lights>
 
-    <cannon-world :gravity="{ x: 0, y: 0, z: 0 }">
+    <cannon-world :gravity="{ x: 0, y: -9.82, z: 0 }">
       <base-plane></base-plane>
 
-      <base-character :setRadius="2"></base-character>
+      <base-character :setRadius="2" ref="character"></base-character>
 
       <div v-if="isModel">
         <base-room-model></base-room-model>
@@ -37,7 +37,6 @@ import BaseCharacter from '../components/characters/BaseCharacter.vue';
 import BaseLights from '../components/lights/BaseLights.vue';
 import BaseRoomModel from '../components/rooms/BaseRoomModel.vue';
 
-import { Color, MathUtils, Object3D, Vector3 } from 'three';
 import CannonWorld from 'troisjs/src/components/physics/CannonWorld.js';
 
 export default {

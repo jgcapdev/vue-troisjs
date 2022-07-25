@@ -1,5 +1,5 @@
 <template>
-  <Mesh ref="floor" :rotation="{ x: Math.PI / -2 }" :receive-shadow="true">
+  <Mesh ref="floor" :rotation="{ x: Math.PI / -2 }" :receive-shadow="true" @created="initIMesh">
     <PlaneGeometry :width="100" :height="100" />
     <BasicMaterial :color="color" :props="{ side: materialSide }">
       <Texture src="/assets/textures/grass/color.jpg" />
@@ -12,7 +12,7 @@
 
 <script>
 import { Mesh, PlaneGeometry, BasicMaterial, Texture } from 'troisjs';
-import { DoubleSide, Vector3 } from 'three';
+import { DoubleSide } from 'three';
 
 export default {
   components: { Mesh, PlaneGeometry, BasicMaterial, Texture },
@@ -35,6 +35,15 @@ export default {
     });
     f2.addInput(this, 'color');
     // ***** PANE *****
+  },
+  methods: {
+    initIMesh(imesh) {
+      this.imesh = imesh;
+
+      let mass = 0;
+
+      imesh.userData.mass = mass;
+    },
   },
 };
 </script>

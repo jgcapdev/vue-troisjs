@@ -1,13 +1,13 @@
 <template>
   <base-render-scene>
-    <the-text></the-text>
+    <the-text :text="text"></the-text>
 
     <base-lights></base-lights>
 
     <cannon-world :gravity="{ x: 0, y: -9.82, z: 0 }">
       <base-plane></base-plane>
 
-      <base-character :setRadius="2" ref="character"></base-character>
+      <base-character @text-base="setText" :setRadius="2" ref="character"></base-character>
 
       <div v-if="isModel">
         <base-room-model></base-room-model>
@@ -58,11 +58,15 @@ export default {
   data() {
     return {
       isModel: false,
+      text: 'Troisjs and Vue',
     };
   },
   methods: {
     switchModel() {
       this.isModel = !this.isModel;
+    },
+    setText(text) {
+      this.text = text;
     },
   },
   mounted() {

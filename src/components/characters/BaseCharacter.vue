@@ -17,6 +17,7 @@ import { Mesh, SphereGeometry, BasicMaterial } from 'troisjs';
 
 export default {
   components: { Mesh, SphereGeometry, BasicMaterial },
+  emits: ['text-base'],
   data() {
     return {
       color: this.setColor,
@@ -71,6 +72,7 @@ export default {
     this.imesh.userData.body.addEventListener('collide', (e) => {
       if (e.body.id === 2) {
         console.log('Contact with base room');
+        this.$emit('text-base', 'You are in red room');
         if (e.target.position.x >= 7.6) {
           console.log('Cayendo por la derecha');
         } else if (e.target.position.z >= 7.6) {
@@ -78,10 +80,13 @@ export default {
         }
       } else if (e.body.id === 0) {
         console.log('Contact with floor');
+        this.$emit('text-base', 'You are in the floor');
       } else if (e.body.id === 3) {
         console.log('Contact with yellow room');
+        this.$emit('text-base', 'You are in yellow room');
       } else if (e.body.id === 4) {
         console.log('Contact with blue room');
+        this.$emit('text-base', 'You are in blue room');
       }
     });
   },

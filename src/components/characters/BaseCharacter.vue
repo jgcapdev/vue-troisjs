@@ -69,10 +69,19 @@ export default {
     });
 
     this.imesh.userData.body.addEventListener('collide', (e) => {
-      console.log(e.contact);
-
-      if (e.contact.id === 105) {
+      if (e.body.id === 2) {
         console.log('Contact with base room');
+        if (e.target.position.x >= 7.6) {
+          console.log('Cayendo por la derecha');
+        } else if (e.target.position.z >= 7.6) {
+          console.log('Cayendo por la izquierda');
+        }
+      } else if (e.body.id === 0) {
+        console.log('Contact with floor');
+      } else if (e.body.id === 3) {
+        console.log('Contact with yellow room');
+      } else if (e.body.id === 4) {
+        console.log('Contact with blue room');
       }
     });
   },

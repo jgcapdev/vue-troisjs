@@ -42,7 +42,7 @@ export default {
     return {
       far: 1000,
       fov: 60,
-      position: { x: 30, y: 20, z: 40 },
+      position: { x: 27.6, y: 30.8, z: 33.8 },
       background: '#ADD8E6',
       resize: 'window',
     };

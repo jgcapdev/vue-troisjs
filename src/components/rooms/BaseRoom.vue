@@ -14,7 +14,7 @@
 import { Mesh, BoxGeometry, BasicMaterial, Texture } from 'troisjs';
 
 export default {
-  components: { Mesh, BoxGeometry, BasicMaterial, Texture },
+  components: { Mesh, BoxGeometry, BasicMaterial, Texture, Text },
   props: {
     position: {
       type: Object,

@@ -1,5 +1,7 @@
 <template>
   <base-render-scene>
+    <the-text></the-text>
+
     <base-lights></base-lights>
 
     <cannon-world :gravity="{ x: 0, y: -9.82, z: 0 }">
@@ -16,7 +18,7 @@
       <div v-else>
         <base-room :width="15" :height="8" :position="{ x: 0, y: 4, z: 0 }" :depth="15"></base-room>
         <base-room :width="5" :position="{ x: 25, y: 5, z: 0 }" :color="'yellow'"></base-room>
-        <base-room :width="15" :position="{ x: 0, y: 5, z: 25 }" :color="'brown'"></base-room>
+        <base-room :width="15" :position="{ x: 0, y: 5, z: 25 }" :color="'blue'"></base-room>
       </div>
     </cannon-world>
   </base-render-scene>
@@ -27,6 +29,7 @@ import { Camera, Renderer, Scene } from 'troisjs';
 import Stats from 'troisjs/src/components/misc/Stats';
 
 import BaseRenderScene from '../components/layout/BaseRenderScene.vue';
+import TheText from '../components/layout/TheText.vue';
 
 import BaseRoom from '../components/rooms/BaseRoom.vue';
 import BasePlane from '../components/rooms/BaseFloor.vue';
@@ -50,6 +53,7 @@ export default {
     BaseRoomModel,
     BaseRenderScene,
     CannonWorld,
+    TheText,
   },
   data() {
     return {

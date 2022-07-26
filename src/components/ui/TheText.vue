@@ -8,6 +8,7 @@
     :position="position"
     :rotation="rotation"
     :cast-shadow="true"
+    :receive-shadow="true"
   >
     <BasicMaterial>
       <Texture src="/assets/textures/grass/color.jpg" />
@@ -34,6 +35,13 @@ export default {
       position: { x: -5, y: 20, z: 10 },
       rotation: { x: 0, y: Math.PI * 0.5, z: 0 },
     };
+  },
+  mounted() {
+    const f5 = this.$pane.addFolder({
+      title: 'Text',
+    });
+    f5.addInput(this, 'position');
+    f5.addInput(this, 'rotation');
   },
 };
 </script>

@@ -70,6 +70,7 @@ export default {
     });
 
     this.imesh.userData.body.addEventListener('collide', (e) => {
+      console.log(e.body.id);
       if (e.body.id === 2) {
         console.log('Contact with base room');
         this.$emit('text-base', 'You are in red room');
@@ -87,6 +88,23 @@ export default {
       } else if (e.body.id === 4) {
         console.log('Contact with blue room');
         this.$emit('text-base', 'You are in blue room');
+      } else if (e.body.id === 5) {
+        console.log('Teleporting...');
+        this.$emit('text-base', 'Teleporting...');
+
+        setTimeout(() => {
+          this.$router.push('/teleport');
+        }, 2000);
+      } else if (e.body.id === 8) {
+        console.log('Teleporting...');
+        this.$emit('text-base', 'Teleporting...');
+
+        setTimeout(() => {
+          this.$router.push('/rooms');
+        }, 2000);
+      } else if (e.body.id === 6) {
+        console.log('Contact with floor');
+        this.$emit('text-base', 'You are in the floor');
       }
     });
   },

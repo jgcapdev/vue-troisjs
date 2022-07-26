@@ -3,10 +3,11 @@
 </template>
 
 <script>
-import TheRooms from './scenes/TheRooms.vue';
+import TheRooms from '@/scenes/TheRooms.vue';
+import TheTeleport from '@/scenes/TheTeleport.vue';
 
 export default {
-  components: { TheRooms },
+  components: { TheRooms, TheTeleport },
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <Mesh ref="room" :position="position" receive-shadow @created="initIMesh">
+  <Mesh ref="room" :position="position" receive-shadow @created="initIMesh" @pointerOver="onPointerOver">
     <BoxGeometry :width="width" :height="height" :depth="depth" />
     <BasicMaterial :color="color">
       <Texture src="/assets/textures/bricks/color.jpg" />
@@ -44,6 +44,9 @@ export default {
       let mass = 0;
 
       imesh.userData.mass = mass;
+    },
+    onPointerOver(event) {
+      event.component.mesh.material.color.set(event.over ? 0xff11ee : this.color);
     },
   },
 };

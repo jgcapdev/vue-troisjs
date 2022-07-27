@@ -13,4 +13,7 @@ export default {
 
     context.commit('setCryptos', responseData);
   },
+  fetchScene(context, data) {
+    context.commit('setScene', data);
+  },
 };

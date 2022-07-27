@@ -7,6 +7,7 @@ import getters from './getters.js';
 const store = createStore({
   state() {
     cryptos: [];
+    scene: null;
   },
   actions,
   getters,

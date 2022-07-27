@@ -23,7 +23,7 @@ import BasePlane from '@/components/rooms/BaseFloor.vue';
 import BaseCharacter from '@/components/characters/BaseCharacter.vue';
 import BaseLights from '@/components/lights/BaseLights.vue';
 import BaseRoomModel from '@/components/rooms/BaseRoomModel.vue';
-import ThePortal from '@/components/rooms/ThePortal.vue';
+import ThePortal from '@/components/portal/ThePortal.vue';
 
 import CannonWorld from 'troisjs/src/components/physics/CannonWorld.js';
 

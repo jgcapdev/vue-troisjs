@@ -50,7 +50,7 @@ export default {
   mounted() {
     const scene = this.$refs.scene.scene;
     scene.fog = new Fog(0xa0a0a0, 200, 1000);
-    // this.$store.dispatch('fetchScene', this.$refs.scene);
+    this.$store.dispatch('fetchScene', this.$refs.scene);
 
     const axesHelper = new AxesHelper(100);
     scene.add(axesHelper);
